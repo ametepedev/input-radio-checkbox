@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+:root{
+    --color-primary: #7abcf3;
+    --color-bg: #1e262e;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Trirong", serif;
+}
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 30px;
+    background: var(--color-bg);
+}
+.input-list{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+label{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #fff;
+    align-items: center;
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+    appearance: none;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: 1px solid #3a3a3a;
+    z-index: 2;
+    transition: all .2s ease-in-out 0s;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover{
+    border: 1px solid var(--color-primary);
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before{
+    content: '✔';
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    border: 1px solid transparent;
+    font-size: 15px;
+    text-align: center;
+    background: var(--color-primary);
+}
+input[type="checkbox"]:checked::after,
+input[type="radio"]:checked::after{
+    background: var(--color-primary);
+    display: block;
+    border: none;
+    content: '';
+    position: absolute;
+    z-index: 100;
+    animation: click-wave-anim .75s;
+}
+
+@keyframes click-wave-anim {
+    0%{
+        height: 20px;
+        width: 20px;
+        opacity: .35;
+    }
+    100%{
+        height: 50px;
+        width: 50px;
+        opacity: 0;
+    }
+}
+
+input[type="radio"].radio{
+    border-radius: 50%;
+}
+input[type="radio"].radio::after{
+    border-radius: 50%;
+}
+input[type="radio"]:checked.radio::before{
+    border-radius: 50%;
+}
